@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "js-cookie";
 import { fetchMyProfileRequest } from "./redux/actions/MyProfile";
+import { fetchCustomerRequest } from "./redux/actions/Customer";
 
 const { Content } = Layout;
 
@@ -61,6 +62,10 @@ const App = () => {
     // ignore
   }
 }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchCustomerRequest("customer", token));
+  }, []);
 
   return (
     <Layout className="h-[100vh]">
